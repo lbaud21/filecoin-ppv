@@ -6,10 +6,11 @@ type FormValues = {
   fileToUpload: FileList;
 };
 
-const API_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDhiOUYxQWI5NTk3RDM5MDVCNzU0NzYzQkExNmY4MjNhNTA4YTQwNDciLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODU4MjQ0NDIwMzMsIm5hbWUiOiJIQUNLRlMifQ.TM9YgaxtPCoFt4oQcD73_e0FtPol8dnrbRc9Zuo2dLw";
+const getAccessToken = () => {
+  return process.env.WEB3_STORAGE_API_KEY;
+};
 
-const client = new Web3Storage({ token: API_KEY });
+const client = new Web3Storage({ token: getAccessToken() });
 
 function App() {
   const { register, handleSubmit } = useForm<FormValues>();
